@@ -13,5 +13,8 @@ COPY /etc/nginx/conf.d/default.conf /etc/nginx/conf.d
 RUN rm -rf /usr/share/nginx/html \
     && ln -s /app /usr/share/nginx/html
 
+# HTTP listen port
+ENV ELEMENT_WEB_PORT=8080
+
 ENV LD_PRELOAD="/usr/local/lib/libhardened_malloc.so"
 USER $UID
