@@ -1,5 +1,7 @@
 FROM vectorim/element-web AS extract
 
+# ======================================= #
+
 FROM ghcr.io/polarix-containers/nginx:unprivileged-mainline-slim
 
 LABEL maintainer="Thien Tran contact@tommytran.io"
@@ -8,6 +10,11 @@ ENV LD_PRELOAD=""
 USER root
 
 COPY --from=extract /app /app
+
+# Override default nginx config. Templates in `/etc/nginx/templates` are passed
+# through `envsubst` by the nginx docker image entry point.
+COPY /etc/nginx/templates/* /etc/nginx/templates/
+
 COPY /etc/nginx/conf.d/default.conf /etc/nginx/conf.d
 
 RUN --network=none \
