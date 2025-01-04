@@ -15,8 +15,6 @@ COPY --from=extract /app /app
 # through `envsubst` by the nginx docker image entry point.
 COPY /etc/nginx/templates/* /etc/nginx/templates/
 
-COPY /etc/nginx/conf.d/default.conf /etc/nginx/conf.d
-
 RUN --network=none \
     rm -rf /usr/share/nginx/html \
     && ln -s /app /usr/share/nginx/html
