@@ -19,6 +19,7 @@
     user: "101:101"
     read_only: true
     tmpfs:
+      - /etc/nginx/conf.d:size=50M,mode=0770,noexec,nosuid,nodev
       - /var/cache/nginx:size=50M,mode=0770,noexec,nosuid,nodev
     security_opt:
       - no-new-privileges:true
