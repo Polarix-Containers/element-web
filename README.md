@@ -19,12 +19,14 @@
     user: "101:101"
     read_only: true
     tmpfs:
-      - /etc/nginx/conf.d:size=50M,mode=0770,noexec,nosuid,nodev
-      - /var/cache/nginx:size=50M,mode=0770,noexec,nosuid,nodev
+      - /etc/nginx/conf.d:size=50M,mode=0770,noexec,nosuid,nodev,uid=101
+      - /var/cache/nginx:size=50M,mode=0770,noexec,nosuid,nodev,uid=101
     security_opt:
       - no-new-privileges:true
     cap_drop:
       - ALL
+    ports:
+      - "8080:8080"
 ```
 
 ### Licensing
