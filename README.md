@@ -14,6 +14,8 @@
     image: ghcr.io/polarix-containers/element-web:latest
     container_name: element
     restart: unless-stopped
+    ports:
+      - "8080:8080"
     volumes:
       - ./element/config.json:/app/config.json:ro,Z
     user: "101:101"
@@ -25,8 +27,6 @@
       - no-new-privileges:true
     cap_drop:
       - ALL
-    ports:
-      - "8080:8080"
 ```
 
 ### Licensing
