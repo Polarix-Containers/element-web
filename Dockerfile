@@ -27,7 +27,7 @@ RUN --network=none \
 ENV ELEMENT_WEB_PORT=8080
 
 ENV LD_PRELOAD="/usr/local/lib/libhardened_malloc.so"
-USER $UID
+USER nginx
 
 HEALTHCHECK --start-period=5s --interval=15s --timeout=5s \
     CMD curl -fSs http://localhost:$ELEMENT_WEB_PORT/config.json || exit 1
