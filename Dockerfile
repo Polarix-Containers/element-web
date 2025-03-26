@@ -29,5 +29,5 @@ ENV ELEMENT_WEB_PORT=8080
 ENV LD_PRELOAD="/usr/local/lib/libhardened_malloc.so"
 USER nginx
 
-HEALTHCHECK --start-period=5s 
+HEALTHCHECK --start-period=5s \
     CMD wget -q --spider http://localhost:$ELEMENT_WEB_PORT/config.json
